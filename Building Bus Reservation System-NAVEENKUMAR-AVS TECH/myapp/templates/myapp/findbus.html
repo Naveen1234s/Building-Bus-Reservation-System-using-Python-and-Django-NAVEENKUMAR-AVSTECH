@@ -1,0 +1,30 @@
+{% extends 'myapp/base.html' %} 
+{% block content %}
+<div class="container py-5">
+    <div class="card bg-gradient bg-success border-0 rounded-lg shadow">
+        <div class="card-body">
+            <h2 class="my-3 text-center text-light">Bus Reservation System</h2>
+            <p class="lead text-center text-light mb-4">Book your bus tickets hassle-free!</p>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form action="{% url 'findbus' %}" method="post" id="find-form">
+                        {% csrf_token %}
+                        <div class="input-group mb-3">
+                            <input name='source' class="form-control rounded-pill" type="text" placeholder="From" aria-label="From" aria-describedby="basic-addon1" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name='destination' class="form-control rounded-pill" type="text" placeholder="Destination" aria-label="Destination" aria-describedby="basic-addon2" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input name='date' class="form-control rounded-pill" type="date" placeholder="Date" aria-label="Date" aria-describedby="basic-addon3" required>
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary btn-lg rounded-pill" type="submit">Find Bus</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
